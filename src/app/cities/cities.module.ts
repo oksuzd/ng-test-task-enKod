@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from "@angular/router";
 import { ToolBarComponent } from "./components/tool-bar/tool-bar.component";
-import { CityListComponent } from "./components/city-list/city-list.component";
-import { CityGridComponent } from "./components/city-grid/city-grid.component";
-
+import { CitiesListComponent } from "./components/cities-list/cities-list.component";
+import { CitiesGridComponent } from "./components/cities-grid/cities-grid.component";
+import { CitiesComponent } from './cities.component';
 
 
 @NgModule({
   declarations: [
     ToolBarComponent,
-    CityListComponent,
-    CityGridComponent
+    CitiesListComponent,
+    CitiesGridComponent,
+    CitiesComponent
+  ],
+  exports: [
+    ToolBarComponent,
+    CitiesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterOutlet
   ]
 })
 export class CitiesModule { }

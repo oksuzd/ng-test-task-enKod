@@ -1,0 +1,12 @@
+.tool-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  &__toggles-group {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+}

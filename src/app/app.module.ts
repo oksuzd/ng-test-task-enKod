@@ -3,17 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CoreModule } from "./core/core.module";
+import { HeaderComponent } from "./core/components/header/header.component";
+import { CitiesModule } from "./cities/cities.module";
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CoreModule,
+    CitiesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
