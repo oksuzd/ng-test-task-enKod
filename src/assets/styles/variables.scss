@@ -1,0 +1,23 @@
+:root {
+  --color-dark: #434652;
+  --color-light: #FFF;
+  --color-dark-grey: #757986;
+  --color-light-grey: #F2F5FA;
+  --color-delimiter-grey: #D3D4DB;
+  --color-border-grey: #C4C7D1;
+  --color-accent: #21A5B9;
+
+  --border-radius-s: 2px;
+  --border-radius-m: 4px;
+  --border-radius-l: 8px;
+
+  --font-family-base: 'Roboto', sans-serif;
+
+  --container-width: 1440px;
+  --container-padding-x: 60px;
+
+  //--input-height: 36px;
+  --button-height: 36px;
+
+  --transition-duration: 0.2s;
+}
