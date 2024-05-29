@@ -5,6 +5,7 @@ import { ToolBarComponent } from "./components/tool-bar/tool-bar.component";
 import { CitiesListComponent } from "./components/cities-list/cities-list.component";
 import { CitiesGridComponent } from "./components/cities-grid/cities-grid.component";
 import { CitiesComponent } from './cities.component';
+import { SharedModule } from "../shared/shared.module";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { CitiesComponent } from './cities.component';
   ],
   imports: [
     CommonModule,
-    RouterOutlet
+    RouterOutlet,
+    SharedModule,
   ]
 })
 export class CitiesModule { }

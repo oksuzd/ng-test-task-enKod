@@ -12,6 +12,7 @@ import { CityCardComponent } from "./components/city-card/city-card.component";
     CommonModule,
   ],
   exports: [
+    CityCardComponent
   ],
 })
 export class SharedModule { }

@@ -1,0 +1,14 @@
+.cities-grid {
+  //outline: 2px solid red;
+  margin-bottom: 20px;
+
+  &__list {
+    //outline: 1px solid blue;
+    display: flex;
+    column-gap: 16px;
+    align-items: center;
+    justify-content: start;
+    row-gap: 20px;
+    flex-flow: wrap;
+  }
+}
