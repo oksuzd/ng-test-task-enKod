@@ -3,7 +3,7 @@
     &__header {
       display: flex;
       align-items: center;
-      justify-content: start;
+      justify-content: flex-start;
       column-gap: 8px;
       margin-bottom: 8px;
     }
@@ -23,7 +23,7 @@
   .city-card {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     column-gap: 28px;
     width: 100%;
     padding-block: 20px;
