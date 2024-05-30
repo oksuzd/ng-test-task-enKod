@@ -21,12 +21,8 @@
       border: none;
 
       &:hover {
-        rotate: 15deg;
+        cursor: pointer;
       }
-
-      //path {
-      //  fill: var(--color-dark-grey);
-      //}
     }
 
     &__description {
@@ -51,7 +47,6 @@
     &:hover {
       border-top: 1px solid var(--color-dark);
       border-bottom: 1px solid var(--color-dark);
-      transition: var(--transition-duration);
     }
 
     &__image {
@@ -73,9 +68,7 @@
     transition: var(--transition-duration);
 
     &:hover {
-      //border-radius: var(--border-radius-l);
       box-shadow: var(--shadow);
-      transition: var(--transition-duration);
     }
 
     &__image {

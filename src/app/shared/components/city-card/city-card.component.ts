@@ -1,7 +1,8 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { City } from "../../../cities/models/city.model";
 import { CitiesDataService } from "../../../cities/services/cities-data.service";
-import { catchError, Subject, takeUntil, throwError } from "rxjs";
+import { catchError, Subject, take, takeUntil, throwError } from "rxjs";
+import { CitiesStoreService } from "../../../cities/services/cities-store.service";
 
 @Component({
   selector: 'app-city-card',
@@ -13,7 +14,10 @@ export class CityCardComponent implements OnDestroy {
   private notifier$: Subject<null> = new Subject();
 
 
-  constructor(private dataService: CitiesDataService,) {
+  constructor(
+    private dataService: CitiesDataService,
+    private dataStore: CitiesStoreService,
+  ) {
   }
 
   ngOnDestroy() {
@@ -22,13 +26,17 @@ export class CityCardComponent implements OnDestroy {
   }
 
   toggleFavorite() {
+    const previousFavorite = this.city.favorite;
     this.city.favorite = !this.city.favorite;
     this.dataService.updateCity(this.city)
       .pipe(
+        take(1),
         takeUntil(this.notifier$),
-        catchError((err) => throwError(() => err))
+        catchError((err) => throwError(() => {
+          this.city.favorite = previousFavorite;
+          return err;
+        }))
       )
-      .subscribe();
+      .subscribe(() => this.dataStore.updateCity(this.city));
   }
-
 }
