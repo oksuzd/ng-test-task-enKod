@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { City } from "../../models/city.model";
+import { CitiesStoreService } from "../../services/cities-store.service";
+
 
 @Component({
   selector: 'app-cities-list',
@@ -6,5 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./cities-list.component.scss']
 })
 export class CitiesListComponent {
+  cities: City[] = this.dataStore.getCitiesFromStore();
 
+  constructor( private dataStore: CitiesStoreService ) {}
 }
