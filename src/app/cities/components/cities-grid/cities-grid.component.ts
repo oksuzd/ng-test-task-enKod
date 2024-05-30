@@ -23,7 +23,7 @@ export class CitiesGridComponent implements OnInit, OnDestroy{
     this.notifier$.complete();
   }
 
-  createSubscription() {
+  private createSubscription() {
     this.dataStore.cities$
       .pipe(
         takeUntil(this.notifier$),

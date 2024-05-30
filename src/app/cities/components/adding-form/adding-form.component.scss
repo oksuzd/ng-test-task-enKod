@@ -1,0 +1,33 @@
+.add-city {
+  text-align: center;
+
+  &__title {
+    color: var(--color-accent);
+    text-align: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: start;
+    max-width: 330px;
+  }
+
+  &__textarea {
+    max-width: 320px;
+    height: 100%;
+    max-height: 84px;
+  }
+
+  &__buttons-group {
+    width: 100%;
+    justify-content: center;
+    column-gap: 20px;
+    flex-wrap: nowrap;
+  }
+
+  &__button {
+    width: 96px;
+  }
+}

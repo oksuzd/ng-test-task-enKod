@@ -1,8 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { City } from "../../models/city.model";
 import { CitiesStoreService } from "../../services/cities-store.service";
-import { catchError, Subject, take, takeUntil, throwError } from "rxjs";
-import { CitiesDataService } from "../../services/cities-data.service";
+import { catchError, Subject, takeUntil, throwError } from "rxjs";
 
 
 @Component({
@@ -26,7 +25,7 @@ export class CitiesListComponent implements OnInit, OnDestroy {
     this.notifier$.complete();
   }
 
-  createSubscription() {
+  private createSubscription() {
     this.dataStore.cities$
       .pipe(
         takeUntil(this.notifier$),

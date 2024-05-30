@@ -12,10 +12,23 @@ export class CitiesDataService {
   getCities(): Observable<City[]> {
     let cities: City[] = this.getLocalStorageEntities();
     if (cities.length === 0) {
+      // TODO comment why describe why we set mock data
       localStorage.setItem(this.storageKey, JSON.stringify(CITIES_LIST));
       cities = CITIES_LIST;
     }
     return of(cities);
+  }
+
+  createCity(city: City): Observable<City> {
+    const newCity: City = {
+      ...city,
+      id: Math.floor(Math.random() * 1000),
+      image: 'city-placeholder.jpg',
+    };
+    const entities: City[] = this.getLocalStorageEntities();
+    entities.push(newCity);
+    localStorage.setItem(this.storageKey, JSON.stringify(entities));
+    return of(newCity);
   }
 
   updateCity(updatedCity: City): Observable<boolean> {

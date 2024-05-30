@@ -6,6 +6,13 @@ import { CitiesListComponent } from "./components/cities-list/cities-list.compon
 import { CitiesGridComponent } from "./components/cities-grid/cities-grid.component";
 import { CitiesComponent } from './cities.component';
 import { SharedModule } from "../shared/shared.module";
+import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { AddingFormComponent } from './components/adding-form/adding-form.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatButtonModule } from "@angular/material/button";
 
 
 @NgModule({
@@ -13,7 +20,9 @@ import { SharedModule } from "../shared/shared.module";
     ToolBarComponent,
     CitiesListComponent,
     CitiesGridComponent,
-    CitiesComponent
+    CitiesComponent,
+    DeleteConfirmationComponent,
+    AddingFormComponent
   ],
   exports: [
     ToolBarComponent,
@@ -22,7 +31,12 @@ import { SharedModule } from "../shared/shared.module";
   imports: [
     CommonModule,
     RouterOutlet,
+    ReactiveFormsModule,
     SharedModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
   ]
 })
 export class CitiesModule { }

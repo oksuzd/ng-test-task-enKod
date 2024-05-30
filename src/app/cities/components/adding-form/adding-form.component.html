@@ -1,0 +1,47 @@
+<div class="add-city">
+  <h2 mat-dialog-title class="add-city__title">Новый город</h2>
+  <div mat-dialog-content class="add-city__body">
+    <form [formGroup]="cityForm" class="add-city__form">
+      <div class="field">
+        <label class="field__label" for="city-name">Название города*</label>
+        <input
+            class="field__input"
+            id="city-name"
+            name="name"
+            type="text"
+            formControlName="name"
+        />
+      </div>
+
+      <div class="field">
+        <label class="field__label" for="city-description">Краткое описание*</label>
+        <textarea
+            class="field__input add-city__textarea"
+            id="city-description"
+            name="description"
+            formControlName="description"
+        >
+        </textarea>
+
+      </div>
+
+      <div class="add-city__buttons-group" mat-dialog-actions>
+        <button
+            class="add-city__button button"
+            type="button"
+            (click)="onCancelClick()"
+        >
+
+          Отмена
+        </button>
+        <button
+            class="add-city__button button"
+            type="submit"
+            [disabled]="cityForm.invalid" [mat-dialog-close]="cityForm.value"
+        >
+          Создать
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
