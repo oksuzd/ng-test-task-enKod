@@ -21,7 +21,6 @@ export class CitiesStoreService {
   addCity(newCity: City) {
     const cities: City[] = this.getCitiesFromStore();
     const cityExists = cities.some(city => city.id === newCity.id);
-
     if (cityExists) {
       throwError(() => new Error('City already exists'));
     } else {
@@ -29,8 +28,6 @@ export class CitiesStoreService {
       this._cities$.next([...cities]);
     }
   }
-
-
 
   updateCity(updatedCity: City) {
     const cities: City[] = this.getCitiesFromStore();

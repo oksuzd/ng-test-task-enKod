@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { City } from "../models/city.model";
 import { Observable, of, throwError } from "rxjs";
-import { CITIES_LIST } from "../mock-data/mock-cities";
+import { CITIES_LIST } from "../../../assets/mock-data/mock-cities";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +9,10 @@ import { CITIES_LIST } from "../mock-data/mock-cities";
 export class CitiesDataService {
   private storageKey: string = 'Cities';
 
+  // Data emulation on the "server"
   getCities(): Observable<City[]> {
     let cities: City[] = this.getLocalStorageEntities();
     if (cities.length === 0) {
-      // TODO comment why describe why we set mock data
       localStorage.setItem(this.storageKey, JSON.stringify(CITIES_LIST));
       cities = CITIES_LIST;
     }
@@ -50,7 +50,6 @@ export class CitiesDataService {
       return throwError(() => new Error('City not found or could not be deleted'));
     }
     localStorage.setItem(this.storageKey, JSON.stringify(cities));
-    console.log('deleteCity');
     return of(true);
   }
 

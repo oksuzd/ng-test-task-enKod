@@ -5,7 +5,6 @@ import { NotFoundComponent } from "./pages/not-found/not-found.component";
 import { SharedModule } from "../shared/shared.module";
 
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -19,4 +18,4 @@ import { SharedModule } from "../shared/shared.module";
     SharedModule,
   ]
 })
-export class CoreModule { }
+export class CoreModule {}

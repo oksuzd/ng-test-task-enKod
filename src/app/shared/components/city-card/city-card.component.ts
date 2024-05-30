@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/core';
 import { City } from "../../../cities/models/city.model";
 import { CitiesDataService } from "../../../cities/services/cities-data.service";
 import { catchError, Subject, take, takeUntil, throwError } from "rxjs";
@@ -11,19 +11,19 @@ import {
 @Component({
   selector: 'app-city-card',
   templateUrl: './city-card.component.html',
-  styleUrls: ['./city-card.component.scss']
+  styleUrls: ['./city-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CityCardComponent implements OnDestroy {
+
   @Input() public city!: City;
   private notifier$: Subject<null> = new Subject();
-
 
   constructor(
     private dataService: CitiesDataService,
     private dataStore: CitiesStoreService,
     public dialog: MatDialog,
-  ) {
-  }
+  ) {}
 
   ngOnDestroy() {
     this.notifier$.next(null);

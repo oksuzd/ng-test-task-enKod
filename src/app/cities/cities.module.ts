@@ -39,4 +39,4 @@ import { MatButtonModule } from "@angular/material/button";
     MatInputModule,
   ]
 })
-export class CitiesModule { }
+export class CitiesModule {}

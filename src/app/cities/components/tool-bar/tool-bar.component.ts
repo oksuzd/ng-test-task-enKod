@@ -1,15 +1,14 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { Router } from "@angular/router";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { AddingFormComponent } from "../adding-form/adding-form.component";
-import { CitiesDataService } from "../../services/cities-data.service";
-import { CitiesStoreService } from "../../services/cities-store.service";
 import { City } from "../../models/city.model";
 
 @Component({
   selector: 'app-tool-bar',
   templateUrl: './tool-bar.component.html',
-  styleUrls: ['./tool-bar.component.scss']
+  styleUrls: ['./tool-bar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolBarComponent {
 
@@ -18,8 +17,7 @@ export class ToolBarComponent {
   constructor(
     private router: Router,
     public dialog: MatDialog,
-  ) {
-  }
+  ) {}
 
   addCity(): void {
     const dialogRef: MatDialogRef<AddingFormComponent> = this.dialog.open(AddingFormComponent);
@@ -31,6 +29,6 @@ export class ToolBarComponent {
   }
 
   navigateTo(view: string) {
-    this.router.navigate([view]);
+    this.router.navigate([view]).then();
   }
 }

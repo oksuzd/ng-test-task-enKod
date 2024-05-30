@@ -1,4 +1,4 @@
-import { City } from "../models/city.model";
+import { City } from "../../app/cities/models/city.model";
 
 export const CITIES_LIST: City[] = [
   {
@@ -50,5 +50,4 @@ export const CITIES_LIST: City[] = [
     description: 'Город в Российской Федерации, седьмой по количеству жителей.',
     favorite: false
   },
-
 ]

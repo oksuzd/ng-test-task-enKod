@@ -1,6 +1,6 @@
 export interface City {
   id: number;
-  image?: string;
+  image: string;
   name: string;
   description: string;
   favorite: boolean;

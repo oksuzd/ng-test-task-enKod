@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { CityCardComponent } from "./components/city-card/city-card.component";
 
 
-
 @NgModule({
   declarations: [
     CityCardComponent,
@@ -15,4 +14,4 @@ import { CityCardComponent } from "./components/city-card/city-card.component";
     CityCardComponent
   ],
 })
-export class SharedModule { }
+export class SharedModule {}
