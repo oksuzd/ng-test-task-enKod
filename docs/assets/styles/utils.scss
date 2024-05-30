@@ -1,0 +1,124 @@
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--button-height);
+  padding-inline: 20px;
+  font-size: 14px;
+  color: var(--color-light);
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--border-radius-m);
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-light);
+    color: var(--color-accent);
+  }
+
+  &:active {
+    color: var(--color-border-grey);
+    border: 1px solid var(--color-border-grey);
+  }
+
+  &:disabled {
+    background-color: var(--color-light-grey);
+    color: var(--color-border-grey);
+    border: 1px solid var(--color-border-grey);
+    cursor: not-allowed;
+  }
+
+  &--back {
+    height: 50px;
+    font-size: 20px;
+    border-radius: var(--border-radius-m) 0 0 var(--border-radius-m);
+  }
+
+  &__toggle {
+    padding-inline: 12px;
+    font-size: 13px;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border-grey);
+
+    &:hover {
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+    }
+
+    &:active {
+      color: var(--color-border-grey);
+      border: 1px solid var(--color-border-grey);
+    }
+
+    &--left {
+      border-radius: var(--border-radius-s) 0 0 var(--border-radius-s);
+    }
+
+    &--right {
+      border-radius: 0 var(--border-radius-s) var(--border-radius-s) 0;
+    }
+
+    &--active {
+      background-color: var(--color-light-grey);
+    }
+  }
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  background-color: var(--color-light);
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.field {
+  width: 100%;
+  text-align: start;
+
+  &__input {
+    width: 100%;
+    height: var(--input-height);
+    padding-bottom: 8px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid var(--color-dark);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: 500;
+
+    color: var(--color-dark);
+    pointer-events: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
