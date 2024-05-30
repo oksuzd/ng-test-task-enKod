@@ -9,15 +9,25 @@ import { CitiesStoreService } from "./services/cities-store.service";
   templateUrl: './cities.component.html',
   styleUrls: ['./cities.component.scss']
 })
-export class CitiesComponent implements OnInit, OnDestroy{
+export class CitiesComponent implements OnInit, OnDestroy {
   private notifier$: Subject<null> = new Subject();
 
   constructor(
     private dataService: CitiesDataService,
     private dataStore: CitiesStoreService,
-    ) {}
+  ) {
+  }
 
   ngOnInit() {
+    this.createSubscription();
+  }
+
+  ngOnDestroy() {
+    this.notifier$.next(null);
+    this.notifier$.complete();
+  }
+
+  createSubscription() {
     this.dataService.getCities()
       .pipe(
         take(1),
@@ -27,10 +37,5 @@ export class CitiesComponent implements OnInit, OnDestroy{
       .subscribe((data) => {
         this.dataStore.setCitiesToStore(data);
       });
-  }
-
-  ngOnDestroy() {
-    this.notifier$.next(null);
-    this.notifier$.complete();
   }
 }

@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { City } from "../../../cities/models/city.model";
 import { CitiesDataService } from "../../../cities/services/cities-data.service";
-import { catchError, Subject, take, takeUntil, throwError } from "rxjs";
+import { catchError, Subject, take, takeUntil, tap, throwError } from "rxjs";
 import { CitiesStoreService } from "../../../cities/services/cities-store.service";
 
 @Component({
@@ -38,5 +38,15 @@ export class CityCardComponent implements OnDestroy {
         }))
       )
       .subscribe(() => this.dataStore.updateCity(this.city));
+  }
+
+  deleteCity() {
+    this.dataService.deleteCity(this.city.id)
+      .pipe(
+        take(1),
+        takeUntil(this.notifier$),
+        catchError((err) => throwError(() => err))
+      )
+      .subscribe(() => this.dataStore.deleteCity(this.city.id));
   }
 }

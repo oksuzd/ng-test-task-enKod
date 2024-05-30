@@ -8,10 +8,18 @@
   <div class="city-card__info">
     <header class="city-card__header">
       <h3 class="h3 city-card__title">{{city.name}}</h3>
-      <button class="city-card__favorite-button" type="button" (click)="toggleFavorite()">
+      <button class="city-card__favorite-button icon" type="button" (click)="toggleFavorite()">
         <img
             class="city-card__favorite-icon"
             [src]="city.favorite ? 'assets/img/icons/icon-favorite-checked.svg' : 'assets/img/icons/icon-favorite-unchecked.svg'"
+            alt=""
+            width="16" height="16" loading="lazy"
+        >
+      </button>
+      <button class="city-card__delete-button icon" type="button" (click)="deleteCity()">
+        <img
+            class="city-card__delete-icon"
+            src="assets/img/icons/icon-delete.svg"
             alt=""
             width="16" height="16" loading="lazy"
         >

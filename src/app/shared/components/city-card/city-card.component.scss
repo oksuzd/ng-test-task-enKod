@@ -12,19 +12,6 @@
       font-size: 16px;
     }
 
-    &__favorite-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 6px;
-      background-color: var(--color-light);
-      border: none;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
     &__description {
       color: var(--color-dark-grey);
       font-size: 14px;
@@ -86,7 +73,7 @@
       column-gap: 4px;
     }
 
-    &__favorite-button {
+    &__favorite-button, &__delete-button {
       background-color: var(--color-light-grey);
     }
   }

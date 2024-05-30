@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { City } from "../models/city.model";
-import { BehaviorSubject, throwError } from "rxjs";
+import { BehaviorSubject, Observable, of, throwError } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CitiesStoreService {
-  /**
-   BehaviorSubject is used, laying down the potential need for tracking data changes in various places in the application
-   */
-  private _cities$: BehaviorSubject<City[]> = new BehaviorSubject<City[]>([]);
 
-  setCitiesToStore(data: City[]) {
+  private _cities$: BehaviorSubject<City[]> = new BehaviorSubject<City[]>([]);
+  readonly cities$: Observable<City[]> = this._cities$.asObservable();
+
+   setCitiesToStore(data: City[]) {
     this._cities$.next(data);
   }
 
@@ -27,6 +26,17 @@ export class CitiesStoreService {
     } else {
       cities[index] = updatedCity;
       this._cities$.next([...cities]);
+    }
+  }
+
+  deleteCity(id: number) {
+    let cities: City[] = this.getCitiesFromStore();
+    const initialLength: number = cities.length;
+    cities = cities.filter(city => city.id !== id);
+    if (cities.length === initialLength) {
+      throwError(() => new Error('City not found or could not be deleted'));
+    } else {
+      this._cities$.next(cities);
     }
   }
 }

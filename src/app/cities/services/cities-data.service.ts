@@ -29,6 +29,18 @@ export class CitiesDataService {
     return of(true);
   }
 
+  deleteCity(id: number): Observable<boolean> {
+    let cities: City[] = this.getLocalStorageEntities();
+    const initialLength: number = cities.length;
+    cities = cities.filter(city => city.id !== id);
+    if (cities.length === initialLength) {
+      return throwError(() => new Error('City not found or could not be deleted'));
+    }
+    localStorage.setItem(this.storageKey, JSON.stringify(cities));
+    console.log('deleteCity');
+    return of(true);
+  }
+
   private getLocalStorageEntities(): City[] {
     const entitiesJSON: string | null = localStorage.getItem(this.storageKey);
     if (!entitiesJSON) {
